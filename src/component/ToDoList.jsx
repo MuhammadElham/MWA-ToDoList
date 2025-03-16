@@ -14,6 +14,12 @@ const ToDoList = () => {
   const deleteItem = (element) => {
     setTasks(tasks.filter((item) => item !== element));
   };
+
+  const editItem = (index) => {
+    const newValue = prompt("Enter new Task", tasks[index]);
+    setTasks(tasks.filter((val, item) => item !== index));
+    setTasks((tasks) => [...tasks, newValue]);
+  };
   return (
     <>
       <div className="flex flex-col justify-center items-stretch w-full h-screen px-10">
@@ -27,7 +33,7 @@ const ToDoList = () => {
             <li key={index} className="flex items-center justify-between">
               <p>{item}</p>
               <div>
-                <span>Edit</span>
+                <span onClick={() => editItem(index)}>Edit</span>
                 <span onClick={() => deleteItem(item)}>Delete</span>
               </div>
             </li>
