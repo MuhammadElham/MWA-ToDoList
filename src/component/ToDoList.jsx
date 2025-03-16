@@ -11,8 +11,8 @@ const ToDoList = () => {
     setNewTasks("");
   };
 
-  const deleteItem = () => {
-
+  const deleteItem = (element) => {
+    setTasks(tasks.filter((item) => item !== element));
   };
   return (
     <>
@@ -27,8 +27,8 @@ const ToDoList = () => {
             <li key={index} className="flex items-center justify-between">
               <p>{item}</p>
               <div>
-                <span onClick={editItem}>Edit</span>
-                <span onClick={deleteItem}>Delete</span>
+                <span>Edit</span>
+                <span onClick={() => deleteItem(item)}>Delete</span>
               </div>
             </li>
           ))}
