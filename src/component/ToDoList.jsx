@@ -13,8 +13,8 @@ const ToDoList = () => {
     setNewTasks("");
   };
 
-  const deleteItem = (element) => {
-    setTasks(tasks.filter((item) => item !== element));
+  const deleteItem = (index) => {
+    setTasks(tasks.filter((val , item) => item !== index));
   };
 
   const editItem = (index) => {
@@ -62,7 +62,7 @@ const ToDoList = () => {
                   </span>
                   <span
                     className="text-red-500 hover:underline cursor-pointer text-sm sm:text-base transition-all hover:scale-110"
-                    onClick={() => deleteItem(item)}
+                    onClick={() => deleteItem(index)}
                   >
                     Delete
                   </span>
